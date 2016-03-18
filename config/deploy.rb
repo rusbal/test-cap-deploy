@@ -2,10 +2,11 @@
 lock '3.4.0'
 
 set :application, 'testdeploy'
-set :repo_url, 'git@example.com:rusbal/test-cap-deploy.git'
+set :repo_url, 'git@github.com:rusbal/test-cap-deploy.git'
 set :deploy_to, '/home/deployer/testdeploy'
 set :user, 'deployer'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :default_env, { path: '/home/deployer/.rbenv/shims:/home/deployer/.rbenv/bin:$PATH' }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,9 +25,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
